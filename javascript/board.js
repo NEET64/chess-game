@@ -76,9 +76,12 @@ class Board {
 
         for (let i = 0; i < playerPieces.length; i++) {
             const piece = playerPieces[i];
-            if(this.setSquarePossibilities(piece, true, true).length > 0) return false;
+            if(this.setSquarePossibilities(piece, true, true).length > 0) {
+                this.setToRemovePossibilitiesToFalse();
+                return false;
+            }
         }
-
+        this.setToRemovePossibilitiesToFalse();
         return true;
     }
 
@@ -239,6 +242,13 @@ class Board {
             Pattern["Rook"].call();
         }
 
+        const removeDuplicates = function (arr) {
+            return arr.filter((item,
+                index) => arr.indexOf(item) === index);
+        }
+
+        allPosibilities = removeDuplicates(allPosibilities);
+        
         const isCheckingKing = function (allPoss) {
             let ans = false;
             allPoss.forEach((sq) => {
@@ -247,19 +257,9 @@ class Board {
             return ans;
         }
 
-        const removeFromPossibleSq = function (possibleSq) {
-            for (let i = 0; i < allPosibilities.length; i++) {
-                const element = allPosibilities[i];
-                if(element == possibleSq) {
-                    allPosibilities.splice(i, 1);
-                }
-            }
-        }
-
         if(checkKingSafty) {
             let opponentPieces = opponent.data.pieces;
             for (let i = 0; i < allPosibilities.length; i++) {
-                console.log(allPosibilities[i]);
                 let possibleSq = allPosibilities[i];
                 let prevSq = piece.square;
                 let prevPiece = possibleSq.piece ? possibleSq.piece : null;
@@ -273,8 +273,7 @@ class Board {
                     const opponentPiece = opponentPieces[j];
                     let opponentPiecePossibilities = board.setSquarePossibilities(opponentPiece, false);
                     if(isCheckingKing(opponentPiecePossibilities)) {
-                        removeFromPossibleSq(possibleSq);
-                        i--;
+                        possibleSq.data.toRemoveFromPossible = true;
                     }
                 }
 
@@ -282,6 +281,9 @@ class Board {
                 piece.square = prevSq;
                 possibleSq.piece = prevPiece;
             }
+
+            allPosibilities = allPosibilities.filter(sq => !sq.data.toRemoveFromPossible);
+
         }else return allPosibilities;
 
         if(returnOnlyPossible) return allPosibilities;
@@ -294,6 +296,14 @@ class Board {
             for (let square of squares) {
                 const div = square.data.div;
                 div.classList.remove("move");
+            }
+        }
+    }
+
+    setToRemovePossibilitiesToFalse() {
+        for (let squares of this.data) {
+            for (let square of squares) {
+                square.data.toRemoveFromPossible = false;
             }
         }
     }
