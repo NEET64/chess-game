@@ -1,0 +1,73 @@
+body {
+    background-color: #333;
+}
+
+.chess {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.chessboard {     
+    background-color: white;
+    height: 560px;
+    width: 560px;
+    border-radius: 40px;
+    display: grid;
+    grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);
+}
+
+.chessboard .chessboard-square {   
+    text-align: center;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chessboard > .chessboard-square::before{
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #BEC5A3;
+    position: absolute;
+    opacity: 0.50;
+    visibility: hidden;
+}
+
+.chessboard > .chessboard-square.move::before{
+    visibility: visible;
+}
+
+.chessboard .chessboard-square .chessboard-piece {
+    width: 55px;
+    height: 55px;
+}
+
+.chessboard .chessboard-square[color="white"] {
+    background-color: #EBECD0;
+}
+
+.chessboard .chessboard-square[color="black"] {
+    background-color: #779556;
+    background-size: cover;
+}
+
+.chessboard > .chessboard-square:nth-child(1){
+    border-top-left-radius: 25px;
+}
+
+.chessboard > .chessboard-square:nth-child(8){
+    border-top-right-radius: 25px;
+}
+
+.chessboard > .chessboard-square:nth-child(57){
+    border-bottom-left-radius: 25px;
+}
+
+.chessboard > .chessboard-square:nth-child(64){
+    border-bottom-right-radius: 25px;
+}
