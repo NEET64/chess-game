@@ -152,7 +152,7 @@ class Piece {
 
         this.data.game.swapTurn();
         if(board.isCheckmate()) {
-            console.log("checkmate Bitch!!!");
+            console.log(`checkmate!!! ${this.data.player.data.color} Wins`);
         }
     }
 
