@@ -261,10 +261,13 @@ class Board {
                 let possibleSq = allPosibilities[i];
                 let prevSq = piece.square;
                 let prevPiece = possibleSq.piece ? possibleSq.piece : null;
+                let pieceAtPosSq = null;
 
                 piece.square = possibleSq;
                 prevSq.piece = null;
                 possibleSq.piece = piece;
+
+                if(prevPiece) opponentPieces = opponentPieces.filter(function(p) { return p != prevPiece; }); 
 
                 let len = opponentPieces.length;
                 for (let j = 0; j < len; j++) {
@@ -274,6 +277,8 @@ class Board {
                         possibleSq.data.toRemoveFromPossible = true;
                     }
                 }
+
+                if(prevPiece) opponentPieces.push(prevPiece);
 
                 prevSq.piece = piece;
                 piece.square = prevSq;
