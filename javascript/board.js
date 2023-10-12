@@ -77,11 +77,9 @@ class Board {
         for (let i = 0; i < playerPieces.length; i++) {
             const piece = playerPieces[i];
             if(this.setSquarePossibilities(piece, true, true).length > 0) {
-                this.setToRemovePossibilitiesToFalse();
                 return false;
             }
         }
-        this.setToRemovePossibilitiesToFalse();
         return true;
     }
 

@@ -83,6 +83,7 @@ class Piece {
 
 
             player.data.currentPiece = piece;
+            board.setToRemovePossibilitiesToFalse();
             board.setSquarePossibilities(piece, true);
             
             // console.log(piece.square.data.cordinates);
