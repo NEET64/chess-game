@@ -75,6 +75,22 @@ body {
 
 @media (max-width: 575px) {
     .chessboard {
+        margin-top: 5rem;
+        width: 475px;
+        height: 475px;
+    }
+    .chessboard .chessboard-square .chessboard-piece {
+        width: 45px;
+        height: 45px;
+    }
+    .chessboard > .chessboard-square::before{
+        width: 15px;
+        height: 15px;
+    }
+}
+@media (max-width: 475px) {
+    .chessboard {
+        margin-top: 7rem;
         width: 375px;
         height: 375px;
     }
@@ -90,6 +106,7 @@ body {
 
 @media (max-width: 375px) {
     .chessboard {
+        margin-top: 7rem;
         width: 300px;
         height: 300px;
     }
