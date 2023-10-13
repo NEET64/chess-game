@@ -208,7 +208,7 @@ class Piece {
     }
 
     setPawnToPiece() {
-        let choice = prompt("Type one of these Queen, Rook, Bishope, Knight");
+        let choice = prompt("Type one of these Queen, Rook, Bishop, Knight");
         let piece = this;
         piece.data.name = choice;
         let alias = "";
@@ -217,7 +217,7 @@ class Piece {
 
         if(choice == "Queen") alias+='q';
         else if(choice == "Knight") alias+='n';
-        else if(choice == "Bishope") alias+='b';
+        else if(choice == "Bishop") alias+='b';
         else if(choice == "Rook") alias+='r';
         
         piece.data.alias = alias;

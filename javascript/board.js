@@ -99,7 +99,7 @@ class Board {
         this.removeAllPossibilities();
 
         const Pattern = {
-            Bishope: function () {
+            Bishop: function () {
                 for (let i = 1; i < 8; i++) {
                     if(board.isValidIndex(x+i, y+i, color)) {
                         allPosibilities.push(board.data[x+i][y+i]);
@@ -231,12 +231,12 @@ class Board {
                     }
                 }
             }
-        }else if(pieceName == "Bishope") {
-            Pattern["Bishope"].call();
+        }else if(pieceName == "Bishop") {
+            Pattern["Bishop"].call();
         }else if(pieceName == "Rook") {
             Pattern["Rook"].call();
         }else if(pieceName == "Queen") {
-            Pattern["Bishope"].call();
+            Pattern["Bishop"].call();
             Pattern["Rook"].call();
         }
 
