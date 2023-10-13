@@ -75,8 +75,8 @@ body {
 
 @media (max-width: 575px) {
     .chessboard {
-        width: 350px;
-        height: 350px;
+        width: 375px;
+        height: 375px;
     }
     .chessboard .chessboard-square .chessboard-piece {
         width: 35px;
@@ -90,8 +90,8 @@ body {
 
 @media (max-width: 375px) {
     .chessboard {
-        width: 275px;
-        height: 275px;
+        width: 300px;
+        height: 300px;
     }
     .chessboard .chessboard-square .chessboard-piece {
         width: 25px;
