@@ -80,4 +80,12 @@ function getStockfishMove(positionFEN, callback) {
         callback(suggestedMove); // Pass the suggested move to the callback function
       }
     };
-  }
+}
+
+let close = document.querySelector(".btn");
+
+close.forEach(btn => {
+    btn.addEventListener('click', function () {
+        console.log(clicked);
+    });
+});
