@@ -321,4 +321,38 @@ class Board {
         let alias = sq.data.letter + sq.data.number;
         return alias;
     }
+
+    getFEN() {
+        let board = this;
+        let data = this.data;
+        let turn = this.game.data.turn.data.color.charAt(0);
+
+        let fen = "";
+
+        let getInitial = function (piece) {
+            let alias = piece.data.alias;
+            return alias[0] == 'w' ? alias.toUpperCase().charAt(1) : alias.charAt(1);
+        }
+
+        for (let i = 0; i < 8; i++) {
+            let row = "";
+            let gap = 0;
+            for (let j = 0; j < 8; j++) {
+                let piece = data[i][j].piece;
+                if(!piece) gap++;
+                else {
+                    if(gap>0){
+                        row += gap;
+                        gap=0;
+                    }
+                    row+=getInitial(piece);
+                }
+            }
+            if(gap>0) row+=gap;
+            row+='/';
+            fen+=row;
+        }
+        fen+=" "+turn;
+        return fen;
+    }
 }

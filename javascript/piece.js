@@ -92,14 +92,14 @@ class Piece {
 		element.addEventListener("mousedown", mousedown);
 	}
 
-    move(cordinates) {
+    move(cordinates, isComputerMove) {
         let {x, y} = cordinates;
         let player = this.data.player;
         let board = this.data.game.data.board;
         let targetSq = board.data[x][y];
         let prevSq = this.square;
         
-        if(!targetSq.data.div.classList.contains("move") || targetSq == prevSq) return;
+        if(!targetSq.data.div.classList.contains("move")&&!isComputerMove || targetSq == prevSq) return;
 
         if(this.data.name == "King" && this.isCastling(cordinates)) {
             if(x == 0) {

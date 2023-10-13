@@ -1,5 +1,5 @@
 class Player {
-    constructor(name, id, color) {
+    constructor(name, id, color, isComputer) {
         this.data = {
             isWinner: false,
             isTimeout: false,
@@ -15,7 +15,7 @@ class Player {
 			moves: [],
 			currentPiece: null, 
         };
-
+        this.isComputer = isComputer;
         this.game = null;
     }
 
