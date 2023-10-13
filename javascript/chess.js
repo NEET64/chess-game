@@ -72,7 +72,7 @@ Game.init(function () {
 
 function getStockfishMove(positionFEN, callback) {
     stockfish.postMessage('position fen ' + positionFEN);
-    stockfish.postMessage('go depth 10'); // You can adjust the depth for desired difficulty
+    stockfish.postMessage('go depth 1'); // You can adjust the depth for desired difficulty
   
     stockfish.onmessage = function (event) {
       if (event.data.startsWith('bestmove')) {

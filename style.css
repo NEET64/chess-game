@@ -1,28 +1,34 @@
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
     background-color: #333;
 }
 
 .chess {
-    height: 100%;
+    height: 100vh;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 4rem;
 }
 
 .chessboard {     
     background-color: white;
-    width: 560px;
-    height: 560px;
-    border-radius: 20%;
+    width: 80vmin;
+    height: 80vmin;
+    border-radius: 2.5%;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .chessboard .chessboard-square {   
     text-align: center;
-    font-size: 24px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,8 +36,8 @@ body {
 
 .chessboard > .chessboard-square::before{
     content: "";
-    width: 25px;
-    height: 25px;
+    width: 4vmin;
+    height: 4vmin;
     border-radius: 50%;
     background: #BEC5A3;
     position: absolute;
@@ -44,8 +50,8 @@ body {
 }
 
 .chessboard .chessboard-square .chessboard-piece {
-    width: 50px;
-    height: 50px;
+    width: 8vmin;
+    height: 8vmin;
 }
 
 .chessboard .chessboard-square[color="white"] {
@@ -73,49 +79,13 @@ body {
     border-bottom-right-radius: 20%;
 }
 
-@media (max-width: 575px) {
-    .chessboard {
-        margin-top: 5rem;
-        width: 475px;
-        height: 475px;
-    }
-    .chessboard .chessboard-square .chessboard-piece {
-        width: 45px;
-        height: 45px;
-    }
-    .chessboard > .chessboard-square::before{
-        width: 15px;
-        height: 15px;
-    }
-}
 @media (max-width: 475px) {
     .chessboard {
-        margin-top: 7rem;
-        width: 375px;
-        height: 375px;
+        width: 95vmin;
+        height: 95vmin;
     }
     .chessboard .chessboard-square .chessboard-piece {
-        width: 35px;
-        height: 35px;
-    }
-    .chessboard > .chessboard-square::before{
-        width: 15px;
-        height: 15px;
-    }
-}
-
-@media (max-width: 375px) {
-    .chessboard {
-        margin-top: 8rem;
-        width: 300px;
-        height: 300px;
-    }
-    .chessboard .chessboard-square .chessboard-piece {
-        width: 25px;
-        height: 25px;
-    }
-    .chessboard > .chessboard-square::before{
-        width: 10px;
-        height: 10px;
+        width: 11vmin;
+        height: 11vmin;
     }
 }
