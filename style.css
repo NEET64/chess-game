@@ -91,35 +91,38 @@ body {
     align-items: center;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.348);
+    background-color: rgba(0, 0, 0, 0.35);
     border-radius: 20px;
+    visibility: hidden;
 }
 
 .dialogcontent {
     position: absolute;
-    height: 200px;
-    width: 300px;
+    height: 25vmin;
+    width: 45vmin;
     background-color: white;
     border-radius: 20px;
 }
 
 .close {
     position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 2rem;
+    right: 1vmin;
+    top: 1vmin;
+    font-size: 4vmin;
+    padding: 2vmin;
 }
 
 .winner {
     position: absolute;
-    font-size: 30px;
-    margin: 20px;
-    top: 30px;
+    font-size: 4.5vmin;
+    margin-top: 2vmin;
+    margin-left: 5vmin;
+    top: 5vmin;
 }
 
 .btns {
     position: absolute;
-    bottom: 20px;
+    bottom: 2.5vmin;
     display: flex;
     justify-content: space-evenly;
     width: 100%;
@@ -128,21 +131,20 @@ body {
 .btn {
     background-color: #1899D6;
     border: solid transparent;
-    border-radius: 16px;
+    border-radius: 2vmin;
     border-width: 0 0 4px;
     box-sizing: border-box;
     color: #FFFFFF;
     cursor: pointer;
     display: inline-block;
     font-family: din-round,sans-serif;
-    font-size: 15px;
+    font-size: 2vmin;
     font-weight: 700;
     letter-spacing: .8px;
-    line-height: 20px;
     margin: 0;
     outline: none;
     overflow: visible;
-    padding: 13px 16px;
+    padding: 2vmin 3vmin;
     text-align: center;
     text-transform: uppercase;
     touch-action: manipulation;

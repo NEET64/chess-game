@@ -30,7 +30,7 @@ class Chess {
     async assignPlayers() {
         return new Promise((resolve) => {
 			const player1 = new Player("Luffy", 1, "white", false);
-			const player2 = new Player("Zoro", 2, "black", true);
+			const player2 = new Player("Zoro", 2, "black", false);
 
 			this.data.players = [player1, player2];
 
@@ -82,10 +82,19 @@ function getStockfishMove(positionFEN, callback) {
     };
 }
 
-let close = document.querySelector(".btn");
+let close = document.querySelector(".close");
+let share = document.querySelector(".share");
+let playagain = document.querySelector(".playagain");
 
-close.forEach(btn => {
-    btn.addEventListener('click', function () {
-        console.log(clicked);
-    });
+close.addEventListener('click', function () {
+    console.log("close");
+    location.reload();
+});
+
+share.addEventListener('click', function () {
+    console.log("close");
+});
+
+playagain.addEventListener('click', function () {
+    console.log("close");
 });
