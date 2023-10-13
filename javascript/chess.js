@@ -30,7 +30,7 @@ class Chess {
     async assignPlayers() {
         return new Promise((resolve) => {
 			const player1 = new Player("Luffy", 1, "white", false);
-			const player2 = new Player("Zoro", 2, "black", false);
+			const player2 = new Player("Zoro", 2, "black", true);
 
 			this.data.players = [player1, player2];
 
