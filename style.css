@@ -3,20 +3,21 @@ body {
 }
 
 .chess {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 .chessboard {     
     background-color: white;
-    height: 560px;
     width: 560px;
-    border-radius: 40px;
+    height: 560px;
+    border-radius: 20%;
     display: grid;
-    grid-template-columns: repeat(8, 70px);
-    grid-template-rows: repeat(8, 70px);
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
 }
 
 .chessboard .chessboard-square {   
@@ -43,8 +44,8 @@ body {
 }
 
 .chessboard .chessboard-square .chessboard-piece {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
 }
 
 .chessboard .chessboard-square[color="white"] {
@@ -57,17 +58,47 @@ body {
 }
 
 .chessboard > .chessboard-square:nth-child(1){
-    border-top-left-radius: 25px;
+    border-top-left-radius: 20%;
 }
 
 .chessboard > .chessboard-square:nth-child(8){
-    border-top-right-radius: 25px;
+    border-top-right-radius: 20%;
 }
 
 .chessboard > .chessboard-square:nth-child(57){
-    border-bottom-left-radius: 25px;
+    border-bottom-left-radius: 20%;
 }
 
 .chessboard > .chessboard-square:nth-child(64){
-    border-bottom-right-radius: 25px;
+    border-bottom-right-radius: 20%;
+}
+
+@media (max-width: 575px) {
+    .chessboard {
+        width: 350px;
+        height: 350px;
+    }
+    .chessboard .chessboard-square .chessboard-piece {
+        width: 35px;
+        height: 35px;
+    }
+    .chessboard > .chessboard-square::before{
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media (max-width: 375px) {
+    .chessboard {
+        width: 275px;
+        height: 275px;
+    }
+    .chessboard .chessboard-square .chessboard-piece {
+        width: 25px;
+        height: 25px;
+    }
+    .chessboard > .chessboard-square::before{
+        width: 10px;
+        height: 10px;
+    }
 }
