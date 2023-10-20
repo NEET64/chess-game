@@ -145,22 +145,12 @@ cubes.forEach(element => {
 
 
 let close = document.querySelector(".close");
-let share = document.querySelector(".share");
-let playagain = document.querySelector(".playagain");
 
 close.addEventListener('click', function () {
     console.log("close");
-    location.reload();
+    let dialogbox = document.querySelector(".winnerDialog");
+    dialogbox.style.visibility = "hidden";
 });
-
-share.addEventListener('click', function () {
-    console.log("close");
-});
-
-playagain.addEventListener('click', function () {
-    console.log("close");
-});
-
 
 let play = document.querySelector(".play");
 

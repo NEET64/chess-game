@@ -120,12 +120,13 @@ body {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.35);
     border-radius: 20px;
+    z-index: 10;
     visibility: hidden;
 }
 
-/* .dialogcontent {
+.dialogcontent {
     position: absolute;
-    height: 25vmin;
+    height: 20vmin;
     width: 45vmin;
     background-color: white;
     border-radius: 20px;
@@ -146,71 +147,6 @@ body {
     margin-left: 5vmin;
     top: 5vmin;
 }
-
-.btns {
-    position: absolute;
-    bottom: 2.5vmin;
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-.btn {
-    background-color: #1899D6;
-    border: solid transparent;
-    border-radius: 2vmin;
-    border-width: 0 0 4px;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: din-round,sans-serif;
-    font-size: 2vmin;
-    font-weight: 700;
-    letter-spacing: .8px;
-    margin: 0;
-    outline: none;
-    overflow: visible;
-    padding: 2vmin 3vmin;
-    text-align: center;
-    text-transform: uppercase;
-    touch-action: manipulation;
-    transform: translateZ(0);
-    transition: filter .2s;
-    user-select: none;
-    -webkit-user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-  }
-  
-  .btn:after {
-    background-clip: padding-box;
-    background-color: #1CB0F6;
-    border: solid transparent;
-    border-radius: 16px;
-    border-width: 0 0 4px;
-    bottom: -4px;
-    content: "";
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -1;
-  }
-  
-  .btn:main,
-  .btn:focus {
-    user-select: auto;
-  }
-  
-  .btn:hover:not(:disabled) {
-    filter: brightness(1.1);
-  }
-  
-  .btn:active {
-    border-width: 4px 0 0;
-    background: none;
-  } */
 
 /*********************************/
 

@@ -159,8 +159,7 @@ class Piece {
         if(board.isCheckmate()) {
             console.log(`checkmate!!! ${this.data.player.data.color} Wins`);
             let dialogbox = document.querySelector(".winnerDialog");
-            // dialogbox.classList.add("show");
-            // dialogbox.style.visibility = "visible";
+            dialogbox.style.visibility = "visible";
         }
     }
 
