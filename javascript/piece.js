@@ -27,12 +27,13 @@ class Piece {
         let elemBelow, droppableBelow;
         let current = null;
         let player = piece.data.player;
+        const chess = document.querySelector(".chessboard");
 
 		const mousedown = function (event) {
 			const move = function (pageX, pageY) {
 				element.style.cursor = "grabbing";
-				element.style.left = pageX - element.offsetWidth / 2 + "px";
-				element.style.top = pageY - element.offsetHeight / 2 + "px";
+				element.style.left = pageX - chess.getBoundingClientRect().left - element.offsetHeight/2 + "px";
+				element.style.top = pageY - chess.getBoundingClientRect().top -window.scrollY - element.offsetWidth/2 + "px";
 			};
 
 			const mousemove = function (event) {
@@ -62,6 +63,8 @@ class Piece {
 			const setStyle = function () {
 				element.style.position = "absolute";
 				element.style.zIndex = 1000;
+                element.style.height = 10+"%";
+                element.style.width = 10+"%";
 			};
 
 			const manageListener = function () {
@@ -135,6 +138,7 @@ class Piece {
             opponent.removePiece(enimyPi);
             enimySq.piece = null;
             targetSq.data.enPassant = false;
+            this.showEatedPiece(opponent, enimyPi);
         }
         this.moveTo(cordinates);
 
@@ -155,9 +159,8 @@ class Piece {
         if(board.isCheckmate()) {
             console.log(`checkmate!!! ${this.data.player.data.color} Wins`);
             let dialogbox = document.querySelector(".winnerDialog");
-            dialogbox.classList.add("show");
-            dialogbox.style.visibility = "visible";
-            console.log(dialogbox);
+            // dialogbox.classList.add("show");
+            // dialogbox.style.visibility = "visible";
         }
     }
 
@@ -195,8 +198,10 @@ class Piece {
             player.data.eated.push(targetSq.piece);
 
             targetSq.data.div.removeChild(eatedPiece.data.image);
-
+            
             otherPlayer.removePiece(eatedPiece);
+
+            this.showEatedPiece(otherPlayer, eatedPiece);
         }
 
         prevSq.piece = null;
@@ -209,6 +214,14 @@ class Piece {
         targetSq.data.div.appendChild(this.data.image);
         
         board.removeAllPossibilities();
+    }
+
+    showEatedPiece(otherPlayer, eatedPiece) {
+        let id = otherPlayer.data.color;
+        let title = document.querySelector(`#${id} .player-title`);
+        title.style.gridRow = "span 1";
+        let eated = document.querySelector(`#${id} .killed-pieces`);
+        eated.appendChild(eatedPiece.data.image);
     }
 
     setPawnToPiece() {

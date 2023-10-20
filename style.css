@@ -1,25 +1,49 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+* {
     margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    width: 100%;
+    position: relative;
     background-color: #333;
     font-family: din-round,sans-serif;
 }
 
-.chess {
-    height: 100vh;
-    margin: 0;
+.game {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 90vmin;
+    width: 120vmin;
     display: flex;
+    gap: 1vmin;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.right-section {
+    background-color: chocolate;
+    height: 100%;
+    width: 40%;
+}
+
+.chess {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .chessboard {     
+    position: relative;
     background-color: white;
-    width: 80vmin;
-    height: 80vmin;
+    width: 100%;
+    height: 80%;
     border-radius: 2.5%;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -30,6 +54,7 @@ body {
 .chessboard .chessboard-square {   
     text-align: center;
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,8 +62,8 @@ body {
 
 .chessboard > .chessboard-square::before{
     content: "";
-    width: 4vmin;
-    height: 4vmin;
+    width: 6%;
+    height: 6%;
     border-radius: 50%;
     background: #BEC5A3;
     position: absolute;
@@ -51,8 +76,8 @@ body {
 }
 
 .chessboard .chessboard-square .chessboard-piece {
-    width: 8vmin;
-    height: 8vmin;
+    width: 80%;
+    height: 80%;
 }
 
 .chessboard .chessboard-square[color="white"] {
@@ -185,13 +210,109 @@ body {
     background: none;
   }
 
-@media (max-width: 475px) {
+  @media (max-width: 875px) {
+    .game {
+        height: 70vmin;
+        width: auto;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+  @media (max-width: 675px) {
+    body {
+        height: 90vh;
+    }
+
+    .game {
+        display: inline-block;
+        width: 100%;   
+        height: 100%;
+        text-align: center;
+        margin-top: 2%;
+    }
+
+    .chess {
+        display: inline-flex;
+        width: 95%;
+        height: auto;
+        aspect-ratio: auto;
+        margin-bottom: 3%;
+    }
+
     .chessboard {
-        width: 95vmin;
-        height: 95vmin;
+        padding-top: 0%;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
     }
-    .chessboard .chessboard-square .chessboard-piece {
-        width: 11vmin;
-        height: 11vmin;
+
+    .right-section {
+        display: inline-flex;
+        width: 95%;
+        height: auto;
+        aspect-ratio: 2 / 1;
+    } 
+
+    .info {
+        display: inline-flex;
+        width: 100%;
+        height: 10%;
+        aspect-ratio: 10 / 1;
     }
+
+    .player-title {
+        text-align: left;
+    }
+}
+
+
+
+/*********************************/
+
+.info {
+    position: relative; 
+    width: 100%;
+    height: 10%;
+    display: grid;
+    grid-template-columns: 2fr 10fr 3fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.player-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    grid-row: span 2;
+}
+
+.profile {
+    background-color: white;
+    border-radius: 50%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+    aspect-ratio: 1 / 1;
+}
+
+.player-title {
+    display: flex;
+    align-items: center;
+    grid-row: span 2;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    font-family: sans-serif;
+}
+
+.killed-pieces {
+    display: flex;
+}
+
+.killed-pieces {
+    width: 20px;
+    height: 20px;
 }
