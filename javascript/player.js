@@ -1,12 +1,12 @@
 class Player {
-    constructor(name, id, color, isComputer) {
+    constructor(ob) {
         this.data = {
             isWinner: false,
             isTimeout: false,
             isReady: false,
-            name,
-            id,
-            color,
+            name : ob.name,
+            id : ob.id,
+            color : ob.color,
             total_moves: 0,
 			timer: { m: null, s: null },
 			piecesData: {},
@@ -15,7 +15,7 @@ class Player {
 			moves: [],
 			currentPiece: null, 
         };
-        this.isComputer = isComputer;
+        this.isComputer = ob.isComputer;
         this.game = null;
     }
 

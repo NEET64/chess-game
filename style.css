@@ -25,9 +25,11 @@ body {
 }
 
 .right-section {
-    background-color: chocolate;
     height: 100%;
     width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .chess {
@@ -121,7 +123,7 @@ body {
     visibility: hidden;
 }
 
-.dialogcontent {
+/* .dialogcontent {
     position: absolute;
     height: 25vmin;
     width: 45vmin;
@@ -208,64 +210,7 @@ body {
   .btn:active {
     border-width: 4px 0 0;
     background: none;
-  }
-
-  @media (max-width: 875px) {
-    .game {
-        height: 70vmin;
-        width: auto;
-        aspect-ratio: 4 / 3;
-    }
-}
-
-  @media (max-width: 675px) {
-    body {
-        height: 90vh;
-    }
-
-    .game {
-        display: inline-block;
-        width: 100%;   
-        height: 100%;
-        text-align: center;
-        margin-top: 2%;
-    }
-
-    .chess {
-        display: inline-flex;
-        width: 95%;
-        height: auto;
-        aspect-ratio: auto;
-        margin-bottom: 3%;
-    }
-
-    .chessboard {
-        padding-top: 0%;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1 / 1;
-    }
-
-    .right-section {
-        display: inline-flex;
-        width: 95%;
-        height: auto;
-        aspect-ratio: 2 / 1;
-    } 
-
-    .info {
-        display: inline-flex;
-        width: 100%;
-        height: 10%;
-        aspect-ratio: 10 / 1;
-    }
-
-    .player-title {
-        text-align: left;
-    }
-}
-
-
+  } */
 
 /*********************************/
 
@@ -315,4 +260,258 @@ body {
 .killed-pieces {
     width: 20px;
     height: 20px;
+}
+
+/****************************/
+
+.game-menu {
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 80%;
+    border-radius: 2.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.choices {
+    position: absolute;
+    top: 10%;
+    width: 80%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.choice {
+    width: 45%;
+    height: 100%;
+    border: 1px solid #565352;
+    border-radius: 1rem;
+    border-bottom: 10px solid #565352;
+}
+
+.btn:hover {
+    background-color: #95c25c;
+    color: #fff;
+}
+
+.choice:active{
+    border: 1px solid #565352;
+    transform: translateY(15%);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.selected {
+    color: #fff;
+    background-color: #95c25c;
+}
+
+.player-options {
+    width: 80%;
+    height: 50%;
+}
+
+.player-options > .wname,
+.player-options > .wname::placeholder {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #EBECD0;
+    outline: none;
+    color: #333;
+    margin-top: 10%;
+}
+
+.player-options > .bname,
+.player-options > .bname::placeholder {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #565352;
+    outline: none;
+    border-color: #95c25c;
+    color: white;
+}
+
+.name {
+    width: 90%;
+    height: 20%;
+    padding-left: 10%;
+}
+
+.timers {
+    display: flex;
+    width: 100%;
+    height: 30%;
+    justify-content: space-between;
+}
+
+.time {
+    width: 30%;
+}
+
+.time:active {
+    border: 1px solid #565352;
+    transform: translateY(5%);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.play {
+    position: absolute;
+    bottom: 10%;
+    background-color: #95c25c;
+    width: 80%;
+    color: white;
+    height: 10%;   
+}
+
+.play:hover {
+    cursor: pointer;
+    background-color: #abd770;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.play:active {
+    border: 1px solid #565352;  
+    transform: translateY(1%);
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100%;
+    font-weight: 700;
+    border: 1px solid #565352;
+    border-radius: 1rem;
+    border-bottom: .4em solid #565352;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.computer {
+    width: 80%;
+    height: 50%;
+    padding-top: 10%;
+    display: none;
+}
+
+.computer > .name,
+.computer > .name::placeholder {
+    margin-bottom: 5%;
+    background-color: #fff;
+    outline: none;
+    color: #333;
+    margin-top: 10%;
+}
+
+.color-choice {
+    position: relative;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.slider {
+    width: 70%;
+}
+
+.cube {
+    height: 100%;
+    width: 40%;
+    background-size: cover; /* Scale the image to cover the entire div */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    text-align: center;
+}
+
+.w {
+    background-image: url(pieces/wk.png);
+}
+
+.b {
+    background-image: url(pieces/bk.png);
+}
+
+.cube:active {
+    border: 1px solid #565352;
+    transform: translateY(5%);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 875px) {
+    body {
+        height: 90vh;
+        font-size: .8rem;
+    }
+    .game {
+        height: 70vmin;
+        width: auto;
+        aspect-ratio: 4 / 3;
+    }
+    .cube {
+        height: 100%;
+        width: 40%;
+    }
+
+    .slider {
+        width: 70%;
+    }
+}
+
+  @media (max-width: 675px) {
+    body {
+        height: 90vh;
+        font-size: 1rem;
+    }
+
+    .game {
+        display: inline-block;
+        width: 100%;   
+        height: 100%;
+        text-align: center;
+        margin-top: 2%;
+    }
+
+    .chess {
+        display: inline-flex;
+        width: 95%;
+        height: auto;
+        aspect-ratio: auto;
+        margin-bottom: 3%;
+    }
+
+    .chessboard {
+        padding-top: 0%;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .right-section {
+        display: inline-flex;
+        width: 95%;
+        height: auto;
+        aspect-ratio: 1 / 1.5;
+    } 
+
+    .info {
+        width: 100%;
+        height: 10%;
+        aspect-ratio: 10 / 1;
+    }
+
+    .player-title {
+        text-align: left;
+    }
+
+    .cube {
+        height: 100%;
+        width: 30%;
+    }
+
+    .slider {
+        width: 70%;
+    }
 }
