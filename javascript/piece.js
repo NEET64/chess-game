@@ -138,7 +138,7 @@ class Piece {
             opponent.removePiece(enimyPi);
             enimySq.piece = null;
             targetSq.data.enPassant = false;
-            this.showEatedPiece(opponent, enimyPi);
+            this.showEatedPiece(player, enimyPi);
         }
         this.moveTo(cordinates);
 
@@ -201,7 +201,7 @@ class Piece {
             
             otherPlayer.removePiece(eatedPiece);
 
-            this.showEatedPiece(otherPlayer, eatedPiece);
+            this.showEatedPiece(player, eatedPiece);
         }
 
         prevSq.piece = null;
@@ -216,8 +216,8 @@ class Piece {
         board.removeAllPossibilities();
     }
 
-    showEatedPiece(otherPlayer, eatedPiece) {
-        let id = otherPlayer.data.color;
+    showEatedPiece(player, eatedPiece) {
+        let id = player.data.color;
         let title = document.querySelector(`#${id} .player-title`);
         title.style.gridRow = "span 1";
         let eated = document.querySelector(`#${id} .killed-pieces`);

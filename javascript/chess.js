@@ -2,14 +2,29 @@
 let chessboard = document.querySelector(".chess .chessboard");
 let stockfish = new Worker('javascript/stockfish.js');
 
+let defaultBoard = new Board();
+let p1  = {
+    name: "",
+    id: 1,
+    color: "white",
+    isComputer: false
+};
+let p2  = {
+    name: "",
+    id: 2,
+    color: "black",
+    isComputer: false
+};
 class Chess {
-    constructor() {
+    constructor(p1, p2) {
         this.data = {
             turn: null,
             timer: 5,
             players: [],
             board: null
         };
+        this.p1 = p1;
+        this.p2 = p2;
     }
 
     async init(callback) {
@@ -29,8 +44,14 @@ class Chess {
 
     async assignPlayers() {
         return new Promise((resolve) => {
-			const player1 = new Player("Luffy", 1, "white", false);
-			const player2 = new Player("Zoro", 2, "black", false);
+			const player1 = new Player(this.p1);
+			const player2 = new Player(this.p2);
+
+            let p1 = document.querySelector("#white .player-title");
+            let p2 = document.querySelector("#black .player-title");
+
+            p1.innerHTML = player1.data.name;
+            p2.innerHTML = player2.data.name;
 
 			this.data.players = [player1, player2];
 
@@ -64,11 +85,7 @@ class Chess {
     }
 }
 
-const Game = new Chess();
-
-Game.init(function () {
-    this.start();
-});
+let Game; 
 
 function getStockfishMove(positionFEN, callback) {
     stockfish.postMessage('position fen ' + positionFEN);
@@ -81,6 +98,51 @@ function getStockfishMove(positionFEN, callback) {
       }
     };
 }
+
+
+let choice = document.querySelectorAll(".choice");
+
+let c = document.querySelector(".computer");
+let p = document.querySelector(".player-options");
+
+choice.forEach(element => {
+    element.addEventListener("click", function () {
+        choice.forEach(e => {
+            e.classList.remove("selected");
+        });
+        element.classList.add("selected");
+        if(element.classList.contains("p")) {
+            p.style.display = "block";
+            c.style.display = "none";
+        }else {
+            c.style.display = "block";
+            p.style.display = "none";
+        }
+    })
+});
+
+let timers = document.querySelectorAll(".time")
+
+timers.forEach(element => {
+    element.addEventListener("click", function () {
+        timers.forEach(e => {
+            e.classList.remove("selected");
+        });
+        element.classList.add("selected");
+    })
+});
+
+let cubes = document.querySelectorAll(".cube")
+
+cubes.forEach(element => {
+    element.addEventListener("click", function () {
+        cubes.forEach(e => {
+            e.classList.remove("selected");
+        });
+        element.classList.add("selected");
+    })
+});
+
 
 let close = document.querySelector(".close");
 let share = document.querySelector(".share");
@@ -97,4 +159,30 @@ share.addEventListener('click', function () {
 
 playagain.addEventListener('click', function () {
     console.log("close");
+});
+
+
+let play = document.querySelector(".play");
+
+play.addEventListener("click", function () {
+    let w = document.querySelector(".w");
+    if(document.querySelector(".p").classList.contains("selected")){
+        p1.name = document.querySelector(".wname").value;
+        p2.name = document.querySelector(".bname").value;
+    }else {
+        if(w.classList.contains("selected")) {
+            p1.name = document.querySelector(".computer > .name").value;
+            p2.name = "Computer";
+            p2.isComputer = true;
+        }else {
+            p2.name = document.querySelector(".computer > .name").value;
+            p1.name = "Computer";
+            p1.isComputer = true;
+        }
+    }
+    chessboard.innerHTML = "";
+    Game = new Chess(p1, p2);
+    Game.init(function () {
+        this.start();
+    });
 });

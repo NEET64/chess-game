@@ -9,7 +9,37 @@
 </head>
 <body>
     <div class="game">
-        <div class="right-section"></div>
+        <div class="right-section">
+            <div class="game-menu">
+                <div class="choices">
+                    <div class="choice p selected btn">1 vs 1</div>
+                    <div class="choice c btn">Computer</div>
+                </div>
+
+                <div class="player-options">
+                    <input type="text" class="name wname btn" placeholder="Player 1"></intput>
+                    <input type="text" class="name bname btn" placeholder="Player 2"></intput>
+                    <div class="timers">
+                        <div class="time btn">1:00</div>
+                        <div class="time btn">5:00</div>
+                        <div class="time btn">10:00</div>
+                    </div>
+                </div>
+                <div class="computer">
+                    <div class="difficulty">
+                        Difficulty
+                        <input class="slider" type="range" min="1" max="10" step="1" value="5">
+                    </div>
+                    <input type="text" class="name btn" placeholder="Player Name"></intput>
+                    <div class="color-choice">
+                        <div class="cube w btn"></div>
+                        <div class="cube b btn"></div>
+                    </div>
+                </div>
+
+                <button class="play btn">Play!</button>
+            </div>
+        </div>
         <div class="chess">     
             <div class="winnerDialog">
                 <div class="dialogcontent">
@@ -21,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div class="info" id="white">
+            <div class="info" id="black">
                 <div class="player-image">
                     <div class="profile"><i class="fa-solid fa-user"></i></div>
                 </div>
@@ -30,7 +60,7 @@
                 <div class="killed-pieces"></div>
             </div>
             <div class="chessboard"></div>
-            <div class="info" id="black">
+            <div class="info" id="white">
                 <div class="player-image">
                     <div class="profile"><i class="fa-solid fa-user"></i></div>
                 </div>
