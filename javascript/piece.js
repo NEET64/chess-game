@@ -136,6 +136,7 @@ class Piece {
             player.data.eated.push(enimyPi);
             enimySq.data.div.removeChild(enimyPi.data.image);
             opponent.removePiece(enimyPi);
+
             enimySq.piece = null;
             targetSq.data.enPassant = false;
             this.showEatedPiece(player, enimyPi);
@@ -143,6 +144,11 @@ class Piece {
         this.moveTo(cordinates);
 
         player.data.moves.push(this.data.name+" "+board.getAlias(prevSq)+" to "+ board.getAlias(targetSq));
+        board.removeToandFrom();
+        prevSq.data.div.classList.add("to");
+        targetSq.data.div.classList.add("from");
+
+        console.log(prevSq.data.div);
 
         console.log(player.data.moves[player.data.moves.length-1]);
 

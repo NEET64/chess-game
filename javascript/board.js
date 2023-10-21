@@ -30,7 +30,7 @@ class Board {
         }
     }
 
-    setPiecesDefault(callback) {
+    setPiecesDefault() {
         const board = this;
         const game = this.game;
         const players = game.data.players;
@@ -313,6 +313,16 @@ class Board {
             for (let square of squares) {
                 const div = square.data.div;
                 div.classList.remove("move");
+            }
+        }
+    }
+
+    removeToandFrom() {
+        for (let squares of this.data) {
+            for (let square of squares) {
+                const div = square.data.div;
+                div.classList.remove("to");
+                div.classList.remove("from");
             }
         }
     }

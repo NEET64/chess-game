@@ -82,6 +82,14 @@ body {
     height: 80%;
 }
 
+.from{
+    background-color: #bd5c6c !important; 
+}
+
+.to{
+    background-color: #e27587 !important;
+}
+
 .chessboard .chessboard-square[color="white"] {
     background-color: #EBECD0;
 }
@@ -238,11 +246,6 @@ body {
     border: 1px solid #565352;
     transform: translateY(15%);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.selected {
-    color: #fff;
-    background-color: #95c25c;
 }
 
 .player-options {
@@ -449,4 +452,10 @@ body {
     .slider {
         width: 70%;
     }
+}
+
+
+.selected {
+    color: #fff;
+    background-color: #95c25c;
 }

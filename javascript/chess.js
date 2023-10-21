@@ -4,13 +4,13 @@ let stockfish = new Worker('javascript/stockfish.js');
 
 let defaultBoard = new Board();
 let p1  = {
-    name: "",
+    name: "Luffy",
     id: 1,
     color: "white",
     isComputer: false
 };
 let p2  = {
-    name: "",
+    name: "Zoro",
     id: 2,
     color: "black",
     isComputer: false
@@ -152,7 +152,7 @@ close.addEventListener('click', function () {
     console.log("close");
     let dialogbox = document.querySelector(".winnerDialog");
     dialogbox.style.visibility = "hidden";
-    document.querySelector(".right-section").style.display = "block";
+    document.querySelector(".right-section").style.display = "inline-flex";
 });
 
 let play = document.querySelector(".play");
@@ -173,8 +173,14 @@ play.addEventListener("click", function () {
             p1.isComputer = true;
         }
     }
+
+    if(p1.name == "") p1.name = "Luffy";
+    if(p2.name == "") p2.name = "Zoro";
+
     document.querySelector(".right-section").style.display = "none";
     chessboard.innerHTML = "";
+    let info = document.querySelectorAll(".killed-pieces");
+    info.forEach(i => {i.innerHTML = "";});
     Game = new Chess(p1, p2);
     Game.init(function () {
         this.start();
