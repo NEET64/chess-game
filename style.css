@@ -119,7 +119,6 @@ body {
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.35);
-    border-radius: 20px;
     z-index: 10;
     visibility: hidden;
 }
@@ -382,7 +381,7 @@ body {
         font-size: .8rem;
     }
     .game {
-        height: 70vmin;
+        height: 85vmin;
         width: auto;
         aspect-ratio: 4 / 3;
     }

@@ -159,6 +159,8 @@ class Piece {
         if(board.isCheckmate()) {
             console.log(`checkmate!!! ${this.data.player.data.color} Wins`);
             let dialogbox = document.querySelector(".winnerDialog");
+
+            document.querySelector(".winnerDialog .winner").innerHTML = `<i class="fa-solid fa-trophy fa-bounce" style="color: #ffd700;"></i> ${this.data.player.data.color.toUpperCase()} Won`;
             dialogbox.style.visibility = "visible";
         }
     }

@@ -73,14 +73,16 @@ class Chess {
 
         if(this.data.turn.isComputer) {
             let board = this.data.board;
-            let data = board.data;
-            let fen = board.getFEN();
-            getStockfishMove(fen, function(suggestedMove) {
+            
+            setTimeout(() => {
+                let fen = board.getFEN();
+                getStockfishMove(fen, function (suggestedMove) {
                     let piece = board.getSquare(suggestedMove.charAt(0), suggestedMove.charAt(1)).piece;
                     let coords = board.getCoordinates(suggestedMove.charAt(2), suggestedMove.charAt(3));
-
+        
                     piece.move(coords, true);
-              });
+                });
+            }, 500);
         }
     }
 }
@@ -150,6 +152,7 @@ close.addEventListener('click', function () {
     console.log("close");
     let dialogbox = document.querySelector(".winnerDialog");
     dialogbox.style.visibility = "hidden";
+    document.querySelector(".right-section").style.display = "block";
 });
 
 let play = document.querySelector(".play");
@@ -170,6 +173,7 @@ play.addEventListener("click", function () {
             p1.isComputer = true;
         }
     }
+    document.querySelector(".right-section").style.display = "none";
     chessboard.innerHTML = "";
     Game = new Chess(p1, p2);
     Game.init(function () {

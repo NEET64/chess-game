@@ -30,7 +30,7 @@ class Board {
         }
     }
 
-    setPiecesDefault() {
+    setPiecesDefault(callback) {
         const board = this;
         const game = this.game;
         const players = game.data.players;
@@ -44,7 +44,21 @@ class Board {
             square.data.div.appendChild(piece.data.image);
         }
 
-        players.forEach((player) => player.data.pieces.forEach(set))
+        players.forEach((player) => player.data.pieces.forEach(set));
+
+        if(game.data.players[0].isComputer) {
+            let board = this;
+
+            setTimeout(() => {
+                let fen = board.getFEN();
+                getStockfishMove(fen, function (suggestedMove) {
+                    let piece = board.getSquare(suggestedMove.charAt(0), suggestedMove.charAt(1)).piece;
+                    let coords = board.getCoordinates(suggestedMove.charAt(2), suggestedMove.charAt(3));
+        
+                    piece.move(coords, true);
+                });
+            }, 2000);
+        }
     }
 
     getSquare(letter, number) {
