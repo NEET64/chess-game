@@ -73,7 +73,7 @@ class Chess {
 
         if(this.data.turn.isComputer) {
             let board = this.data.board;
-            
+            this.data.turn.compDifficulty = document.querySelector(".slider").value;
             setTimeout(() => {
                 let fen = board.getFEN();
                 getStockfishMove(fen, function (suggestedMove) {
@@ -91,7 +91,7 @@ let Game;
 
 function getStockfishMove(positionFEN, callback) {
     stockfish.postMessage('position fen ' + positionFEN);
-    stockfish.postMessage('go depth 1'); // You can adjust the depth for desired difficulty
+    stockfish.postMessage(`go depth ${Game.data.turn.compDifficulty}`); // You can adjust the depth for desired difficulty
   
     stockfish.onmessage = function (event) {
       if (event.data.startsWith('bestmove')) {
@@ -165,11 +165,11 @@ play.addEventListener("click", function () {
     }else {
         if(w.classList.contains("selected")) {
             p1.name = document.querySelector(".computer > .name").value;
-            p2.name = "Computer";
+            p2.name = "Computer "+document.querySelector(".slider").value;
             p2.isComputer = true;
         }else {
             p2.name = document.querySelector(".computer > .name").value;
-            p1.name = "Computer";
+            p1.name = "Computer "+document.querySelector(".slider").value;
             p1.isComputer = true;
         }
     }

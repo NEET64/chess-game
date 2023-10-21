@@ -16,6 +16,7 @@ class Player {
 			currentPiece: null, 
         };
         this.isComputer = ob.isComputer;
+        this.compDifficulty = 1;
         this.game = null;
     }
 

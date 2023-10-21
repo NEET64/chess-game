@@ -57,7 +57,7 @@ class Board {
         
                     piece.move(coords, true);
                 });
-            }, 2000);
+            }, 500);
         }
     }
 
