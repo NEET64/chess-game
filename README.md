@@ -14,6 +14,7 @@ This project is a simple yet feature-rich chess game implemented in JavaScript. 
 - **Human vs. Computer:** Play against Stockfish, a strong open-source chess engine.
 - **User-Friendly Interface:** The game features a clean and intuitive interface for a seamless gaming experience.
 - **Responsive Design:** Enjoy the game on various devices, as the interface adapts to different screen sizes.
+- **Major Fearure:** It has many features like checkmate, not killing king, suggestions, enpassant, Short side and long side castling 
 
 ## Technologies Used
 - Javascript
@@ -25,7 +26,7 @@ This project is a simple yet feature-rich chess game implemented in JavaScript. 
 2. Open `index.html` in your browser <i>(make sure to open with live server)</i>.
 
 ## Contact
-If you have any suggestions or feedback, you can reach me at [neetdhameliya321@gmail.com].
+If you have any suggestions or feedback, you can reach out to me at [Linkedin](https://www.linkedin.com/in/neet--dhameliya/).
 
 ## Glimps
 ![image](https://github.com/NEET64/chess-game/assets/67575976/0a6b362a-1dcc-4bd2-aa54-f19b8e27592b)
