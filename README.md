@@ -3,6 +3,7 @@
 Welcome to the Chess Game project! This JavaScript-based chess game incorporates the powerful Stockfish chess engine to provide a challenging computer opponent.
 
 Try the game: [Chess-Game](https://neet64.github.io/chess-game/)
+
 Youtube Video: [Link](https://youtu.be/GQ6021qgzAY?si=GkcLXwMFpUQDk7jo)
 
 ## About 
